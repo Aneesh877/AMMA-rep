@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        /* General Reset  */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: #fff;
+            line-height: 1.5;
+            padding-top: 100px; /* To account for the fixed header */
+        }
+
+        /* ========== Header Styles ========== */
+        header {
+            width: 100%;
+            background: #111;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+
+        .logo h2 {
+            font-size: 24px;
+            color: #9c27b0;
+            font-weight: bold;
+        }
+
+        /* Main Content Styling */
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 150px;
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #00bcd4;
+            margin-bottom: 40px;
+        }
+
+        form {
+            background-color: #1f1f1f;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
+            width: 100%;
+            max-width: 420px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        form input {
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 8px;
+            background-color: #333;
+            border: 1px solid #444;
+            color: #fff;
+            transition: border-color 0.3s;
+        }
+
+        form input:focus {
+            border-color: #00bcd4;
+            outline: none;
+        }
+
+        form button {
+            background-color: #00bcd4;
+            color: #fff;
+            border-radius: 8px;
+            padding: 12px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            border: none;
+        }
+
+        form button:hover {
+            background-color: #0097a7;
+        }
+
+        a {
+            margin-top: 20px;
+            color: #00bcd4;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='logo.jpg') }}" alt="Logo">
+                <h2>Register Page</h2>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <h1>Register Page</h1>
+
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            {{ form.username }}
+            {{ form.password }}
+            {{ form.submit }}
+        </form>
+
+        <a href="{{ url_for('login') }}">Already have an account? Log In</a>
+    </div>
+</body>
+
+</html>
